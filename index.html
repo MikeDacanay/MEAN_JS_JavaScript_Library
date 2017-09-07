@@ -28,22 +28,24 @@
 				}
 				let sum= 0;
 				for(let i=0; i<arr.length;i++){
-					let temp = callback(arr,i);
-					sum += temp;
+					// let temp = callback(arr,i);
+					sum += callback(arr,i);
 				}
 				return sum;
 			},
 			find: function(arr, callback){
-				if (arr.length===0){
-				break;
-				for(let=0; i<arr.length; i++){
-					if(arr=i)
+				for(let i=0; i<arr.length; i++){
+					if(callback(arr,i)===0){
+						return arr[i];
+					}
 				}
-			}			
+				return undefined;
+			},
 		}
 		
+		let arr= [1, 2, 3, 4, 5];
 
-		//check for map method
+		// check for map method
 		// let test_arr= [1, 2, 3, 4, 5, 6]; 
 		// let check = _.map(test_arr , function(array ,index){
 		// 	array[index]=array[index]*3;
@@ -51,15 +53,18 @@
 		// console.log(check);
 
 		// check for reduce method
-		// let arr= [1, 2, 3, 4, 5]
+
 		// let check= _.reduce(arr, function(array, num){
 		// 	return (array[num]);
 		// });
 		// console.log(check);
 
-		//check for find method
-		let arr= [1,2,3,4,5]
-		let check = .find
+		// check for find method
+		let check= _.find(arr, function(array, index){
+			return array[index]%2;
+		});
+
+		console.log(check);
 	</script>
 </body>
 </html>
