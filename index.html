@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+	<script>
+		// trying to have a console.log of 6
+		// var _={
+		// 	filter: function each(arr, callback) {
+		// 		for(var i = 0; i < arr.length; i++){
+		// 			callback(arr[i]);
+		// 		}
+		// 		}
+		// };
+
+		var _={
+			map:function(arr, callback){
+				for(let i=0; i<arr.length;i++){
+
+					callback(arr,i);
+				};
+				return arr;
+			}
+		}
+
+		let test_arr= [1, 2, 3, 4, 5, 6]; 
+		let check = _.map(test_arr , function(array ,index){
+			array[index]=array[index]*3;
+			});
+		console.log(check);
+
+
+
+	</script>
+</body>
+</html>
