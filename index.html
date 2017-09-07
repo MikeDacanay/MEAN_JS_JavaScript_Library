@@ -41,6 +41,14 @@
 				}
 				return undefined;
 			},
+			reject: function(arr, callback){
+				for(let i=0; i< arr.length; i++){
+					if(callback(arr,i)===0){
+						arr.splice(i,1);
+					}
+				}
+				return arr;
+			}
 		}
 		
 		let arr= [1, 2, 3, 4, 5];
@@ -59,11 +67,10 @@
 		// });
 		// console.log(check);
 
-		// check for find method
-		let check= _.find(arr, function(array, index){
+		// check for find/reject method
+		let check= _.reject(arr, function(array, index){
 			return array[index]%2;
 		});
-
 		console.log(check);
 	</script>
 </body>
