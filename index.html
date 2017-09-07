@@ -18,21 +18,37 @@
 		var _={
 			map:function(arr, callback){
 				for(let i=0; i<arr.length;i++){
-
 					callback(arr,i);
 				};
 				return arr;
-			}
+			},
+			reduce: function(arr, callback){
+				if (arr.length===0){
+					return 0;
+				}
+				let sum= 0;
+				for(let i=0; i<arr.length;i++){
+					let temp = callback(arr,i);
+					sum += temp;
+				}
+				return sum;
+			},			
 		}
+		
 
-		let test_arr= [1, 2, 3, 4, 5, 6]; 
-		let check = _.map(test_arr , function(array ,index){
-			array[index]=array[index]*3;
-			});
+		//check for map method
+		// let test_arr= [1, 2, 3, 4, 5, 6]; 
+		// let check = _.map(test_arr , function(array ,index){
+		// 	array[index]=array[index]*3;
+		// 	});
+		// console.log(check);
+
+		// check for reduce method
+		let arr= [1, 2, 3, 4, 5]
+		let check= _.reduce(arr, function(array, num){
+			return (array[num]);
+		});
 		console.log(check);
-
-
-
 	</script>
 </body>
 </html>
